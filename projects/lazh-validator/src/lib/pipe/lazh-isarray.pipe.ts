@@ -10,7 +10,7 @@ export class LazhIsarrayPipe implements PipeTransform {
 
   constructor(private validateService: LazhValidatorService) {}
 
-  transform(value: any[], ...args: unknown[]): boolean {
+  transform(value: any[]): boolean {
     return this.validateService.IsArrayValid(value);
   }
 

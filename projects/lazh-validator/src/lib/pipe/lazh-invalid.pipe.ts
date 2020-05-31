@@ -10,7 +10,7 @@ export class LazhInvalidPipe implements PipeTransform {
 
   constructor(private validateService: LazhValidatorService) {}
 
-  transform(value: string | number | object, ...args: unknown[]): boolean {
+  transform(value: string | number | object): boolean {
     return this.validateService.IsInvalid(value);
   }
 

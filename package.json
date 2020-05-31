@@ -8,9 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "validator:uninstall": "npm uninstall @lazh/validator",
+    "lib:uninstall": "npm uninstall @lazh/validator",
     "validator:install": "ng build lazh-validator && npm i dist/lazh-validator --save-optional",
-    "library:install": "npm run validator:install"
+    "lib:install": "ng build lazh-validator && npm i dist/lazh-validator",
+    "library:install": "npm run validator:install",
+    "library:reinstall": "npm run lib:uninstall && npm run lib:install"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +24,7 @@
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
+    "@lazh/validator": "file:dist/lazh-validator",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -49,7 +52,5 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-  "optionalDependencies": {
-    "@lazh/validator": "file:dist/lazh-validator"
-  }
+  "optionalDependencies": {}
 }
