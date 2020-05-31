@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ILazhObject } from '../testing';
+import { ILazhObject } from '../tests/index';
 
 import { LazhInvalidPipe } from './lazh-invalid.pipe';
-import { LazhValidatorService } from '../lazh-validator.service';
+import { LazhValidatorService } from '../services/lazh-validator.service';
 
 describe('Lazh In-Valid Pipe Tests', () => {
   let serviceSpy: LazhValidatorService;

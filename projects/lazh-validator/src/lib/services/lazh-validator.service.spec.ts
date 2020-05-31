@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ILazhObject, LazhObjects } from './testing';
+import { ILazhObject, LazhObjects } from '../tests/index';
 
 import { LazhValidatorService } from './lazh-validator.service';
 

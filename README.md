@@ -1,4 +1,4 @@
-# LazhLibs
+# Lazh-Libs
 
 ## Description
 

@@ -1,24 +1,8 @@
-# LazhValidator
+# @Lazh/Validator
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+## Description
 
-## Code scaffolding
+Designed for Angular Apps to Validate Various Data Type Values. Currently Type as below:
 
-Run `ng generate component component-name --project lazh-validator` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project lazh-validator`.
-> Note: Don't forget to add `--project lazh-validator` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build lazh-validator` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build lazh-validator`, go to the dist folder `cd dist/lazh-validator` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test lazh-validator` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+1. **Service** - available as Service to Validate on Any Components in Angular App.
+2. **Pipe** - available for IsValid, IsInvalid & IsArrayValid.

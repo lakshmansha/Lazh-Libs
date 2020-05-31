@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LazhObjects } from '../testing';
+import { LazhObjects } from '../tests/index';
 
 import { LazhIsarrayPipe } from './lazh-isarray.pipe';
-import { LazhValidatorService } from '../lazh-validator.service';
+import { LazhValidatorService } from '../services/lazh-validator.service';
 
 
 describe('Lazh IsArray Pipe Tests', () => {

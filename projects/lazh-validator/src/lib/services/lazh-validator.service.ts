@@ -10,8 +10,6 @@ import { Injectable } from '@angular/core';
 })
 export class LazhValidatorService {
 
-  constructor() { }
-
   /**
    *
    * @param value user provided data.

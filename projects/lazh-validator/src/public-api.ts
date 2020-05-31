@@ -1,7 +1,7 @@
-/*
- * Public API Surface of lazh-validator
+/**
+ * @module
+ * @description
+ * Entry point for all public APIs of this package.
  */
-
 export * from './lib/lazh-validator.module';
-export * from './lib/lazh-validator.service';
-export * from './lib/pipe';
+export * from './lib/services/lazh-validator.service';

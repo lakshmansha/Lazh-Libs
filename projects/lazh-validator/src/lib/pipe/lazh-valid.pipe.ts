@@ -1,9 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { LazhValidatorService } from '../lazh-validator.service';
+import { LazhValidatorService } from '../services/lazh-validator.service';
 
 @Pipe({
-  name: 'lazhValid'
+  name: 'lazhValid',
+  pure: true
 })
 export class LazhValidPipe implements PipeTransform {
 

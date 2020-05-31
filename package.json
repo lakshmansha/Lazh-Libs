@@ -3,11 +3,14 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start:app": "ng serve ngLazhTest",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "validator:uninstall": "npm uninstall @lazh/validator",
+    "validator:install": "ng build lazh-validator && npm i dist/lazh-validator --save-optional",
+    "library:install": "npm run validator:install"
   },
   "private": true,
   "dependencies": {
@@ -45,5 +48,8 @@
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
+  },
+  "optionalDependencies": {
+    "@lazh/validator": "file:dist/lazh-validator"
   }
 }
