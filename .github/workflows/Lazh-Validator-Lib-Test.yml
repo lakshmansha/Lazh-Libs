@@ -7,7 +7,7 @@ name: Lazh-Validator Library Test
 on:
   push:
     branches:
-      - 'feature/**'
+      - 'feature/*'
     paths:
       - 'projects/lazh-validator/**'
 
