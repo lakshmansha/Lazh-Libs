@@ -6,6 +6,7 @@
     "start:app": "ng serve ngLazhTest",
     "build": "ng build",
     "test": "ng test",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "lib:uninstall": "npm uninstall @lazh/validator",
@@ -24,7 +25,6 @@
     "@angular/platform-browser": "~9.1.4",
     "@angular/platform-browser-dynamic": "~9.1.4",
     "@angular/router": "~9.1.4",
-    "@lazh/validator": "file:dist/lazh-validator",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
