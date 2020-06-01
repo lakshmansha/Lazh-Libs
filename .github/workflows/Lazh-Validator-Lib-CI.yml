@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Lazh-Validator Library Test
+name: Lazh-Validator Library CI
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
@@ -41,4 +41,8 @@ jobs:
 
     - name: Test Library
       run: npm run test-headless lazh-validator
+
+    - name: Build Library
+      if: ${{ github.ref == 'refs/heads/develop' && (github.event_name == 'pull_request' || github.event_name == 'push') }}
+      run: npm run build lazh-validator
 
