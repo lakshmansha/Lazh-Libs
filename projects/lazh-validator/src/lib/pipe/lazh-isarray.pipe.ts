@@ -7,11 +7,11 @@ import { LazhValidatorService } from '../services/lazh-validator.service';
  *
  * To Use:
  *
- * `{{ array[] | lazhIsarray }}`
+ * `{{ array[] | IsArray }}`
  *
  */
 @Pipe({
-  name: 'lazhIsarray',
+  name: 'IsArray',
   pure: true
 })
 export class LazhIsarrayPipe implements PipeTransform {

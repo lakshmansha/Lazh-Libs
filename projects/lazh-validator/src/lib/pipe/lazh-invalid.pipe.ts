@@ -7,11 +7,11 @@ import { LazhValidatorService } from '../services/lazh-validator.service';
  *
  * To Use:
  *
- * `{{ 'value' | lzInvalid }}`
+ * `{{ 'value' | IsInvalid }}`
  *
  */
 @Pipe({
-  name: 'lazhInvalid',
+  name: 'IsInvalid',
   pure: true
 })
 export class LazhInvalidPipe implements PipeTransform {

@@ -1,12 +1,13 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Lazh-Validator Library CI
+name: Lazh-Validator Library CI/CD
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
     branches:
+      - 'master'
       - 'develop'
       - 'feature/*'
     paths:
@@ -44,5 +45,36 @@ jobs:
 
     - name: Build Library
       if: ${{ github.ref == 'refs/heads/develop' && (github.event_name == 'pull_request' || github.event_name == 'push') }}
-      run: npm run build lazh-validator
+      run: npm run build lazh-validator -- --prod
 
+    # - name: Package Library
+    #   if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
+    #   working-directory: './dist/lazh-validator'
+    #   run: |
+    #     npm pack
+
+    - name: Publish Library To NPM
+      if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
+      id: npmpublish
+      uses: JS-DevTools/npm-publish@v1
+      with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: './dist/lazh-validator/'
+
+    - if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' && steps.npmpublish.type != 'none' }}
+      run: |
+        echo "NPM Version changed: ${{ steps.npmpublish.outputs.old-version }} => ${{ steps.npmpublish.outputs.version }}"
+
+    # - name: Publish Library To Github
+    #   if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
+    #   id: gprpublish
+    #   with:
+    #       node-version: 10.x
+    #       registry-url: https://npm.pkg.github.com/
+    #   run: npm publish
+    #   env:
+    #       NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    # - if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' && steps.gprpublish.type != 'none' }}
+    #   run: |
+    #     echo "Github Version changed: ${{ steps.gprpublish.outputs.old-version }} => ${{ steps.gprpublish.outputs.version }}"

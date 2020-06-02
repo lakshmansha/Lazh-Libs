@@ -9,11 +9,9 @@
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "lib:uninstall": "npm uninstall @lazh/validator",
-    "validator:install": "ng build lazh-validator && npm i dist/lazh-validator --save-optional",
-    "lib:install": "ng build lazh-validator && npm i dist/lazh-validator",
-    "library:install": "npm run validator:install",
-    "library:reinstall": "npm run lib:uninstall && npm run lib:install"
+    "val:uninstall": "npm uninstall @lazh/validator",
+    "val:build": "ng build lazh-validator",
+    "val:install": "npm i dist/lazh-validator --save-optional"
   },
   "private": true,
   "dependencies": {
@@ -52,5 +50,7 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-  "optionalDependencies": {}
+  "optionalDependencies": {
+    "@lazh/validator": "file:dist/lazh-validator"
+  }
 }

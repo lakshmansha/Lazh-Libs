@@ -1,6 +1,28 @@
 {
   "name": "@lazh/validator",
   "version": "0.0.1",
+  "description": "Designed for Angular Apps to Validate Various Data Type Values",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lakshmansha/Lazh-Libs.git",
+    "directory": "Projects/lazh-validator"
+  },
+  "keywords": [
+    "angular",
+    "typescript",
+    "validator",
+    "pipe",
+    "service"
+  ],
+  "bugs": {
+    "url": "https://github.com/lakshmansha/Lazh-Libs/issues",
+    "email": "haranhari_38@outlook.com"
+  },
+  "author": {
+    "name": "Lakshman.S",
+    "url": "https://www.linkedin.com/in/shalakshman/"
+  },
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^9.1.9",
     "@angular/core": "^9.1.9"
