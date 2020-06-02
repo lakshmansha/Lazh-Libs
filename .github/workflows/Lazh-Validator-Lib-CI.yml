@@ -44,7 +44,7 @@ jobs:
       run: npm run test-headless lazh-validator
 
     - name: Build Library
-      if: ${{ github.ref == 'refs/heads/develop' && (github.event_name == 'pull_request' || github.event_name == 'push') }}
+      if: ${{ github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' }}
       run: npm run build lazh-validator -- --prod
 
     - name: Pack & Publish Library To NPM
