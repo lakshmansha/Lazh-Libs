@@ -6,6 +6,7 @@
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
+    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -14,9 +15,16 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "lazh-validator": [
+        "dist/lazh-validator/lazh-validator",
+        "dist/lazh-validator"
+      ]
+    }
   },
   "angularCompilerOptions": {
+    "strictTemplates": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true
   }

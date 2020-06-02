@@ -2,5 +2,175 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "lazh-validator": {
+      "projectType": "library",
+      "root": "projects/lazh-validator",
+      "sourceRoot": "projects/lazh-validator/src",
+      "prefix": "lazh",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/lazh-validator/tsconfig.lib.json",
+            "project": "projects/lazh-validator/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lazh-validator/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lazh-validator/src/test.ts",
+            "tsConfig": "projects/lazh-validator/tsconfig.spec.json",
+            "karmaConfig": "projects/lazh-validator/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/lazh-validator/tsconfig.lib.json",
+              "projects/lazh-validator/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ngLazhTest": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/ngLazhTest",
+      "sourceRoot": "projects/ngLazhTest/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ngLazhTest",
+            "index": "projects/ngLazhTest/src/index.html",
+            "main": "projects/ngLazhTest/src/main.ts",
+            "polyfills": "projects/ngLazhTest/src/polyfills.ts",
+            "tsConfig": "projects/ngLazhTest/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/ngLazhTest/src/favicon.ico",
+              "projects/ngLazhTest/src/assets"
+            ],
+            "styles": [
+              "projects/ngLazhTest/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ngLazhTest/src/environments/environment.ts",
+                  "with": "projects/ngLazhTest/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ngLazhTest:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ngLazhTest:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ngLazhTest:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngLazhTest/src/test.ts",
+            "polyfills": "projects/ngLazhTest/src/polyfills.ts",
+            "tsConfig": "projects/ngLazhTest/tsconfig.spec.json",
+            "karmaConfig": "projects/ngLazhTest/karma.conf.js",
+            "assets": [
+              "projects/ngLazhTest/src/favicon.ico",
+              "projects/ngLazhTest/src/assets"
+            ],
+            "styles": [
+              "projects/ngLazhTest/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngLazhTest/tsconfig.app.json",
+              "projects/ngLazhTest/tsconfig.spec.json",
+              "projects/ngLazhTest/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ngLazhTest/e2e/protractor.conf.js",
+            "devServerTarget": "ngLazhTest:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ngLazhTest:serve:production"
+            }
+          }
+        }
+      }
+    }},
+  "cli": {
+    "analytics": false
+  },
+  "defaultProject": "lazh-validator"
 }
