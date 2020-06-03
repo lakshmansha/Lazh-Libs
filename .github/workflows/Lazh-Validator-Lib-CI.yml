@@ -12,6 +12,7 @@ on:
       - 'feature/*'
     paths:
       - 'projects/lazh-validator/**'
+      - '.github/workflows/Lazh-Validator-Lib-CI.yml'
   pull_request:
     branches:
       - 'develop'
