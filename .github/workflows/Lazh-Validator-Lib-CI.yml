@@ -46,11 +46,7 @@ jobs:
 
     - name: Build Library
       if: ${{ github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' }}
-      run: npm run build lazh-validator -- --prod
-
-    - name: Set To Publish Directory
-      if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}      
-      run: cd ./dist/lazh-validator  
+      run: npm run build lazh-validator -- --prod 
 
     - name: Publish Library To NPM
       id: publish      
@@ -58,6 +54,9 @@ jobs:
       uses: JS-DevTools/npm-publish@v1
       with:
           token: ${{ secrets.NPM_TOKEN }}
+          package: './dist/lazh-validator/package.json'
+          check-version	: false
+
 
     - if: steps.publish.type != 'none'
       run: |
