@@ -48,16 +48,21 @@ jobs:
       if: ${{ github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' }}
       run: npm run build lazh-validator -- --prod
 
-    - name: Pack & Publish Library To NPM
+    - name: Set To Publish Directory
+      if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}      
+      run: cd ./dist/lazh-validator  
+
+    - name: Publish Library To NPM
+      id: publish      
       if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
-      working-directory: './dist/lazh-validator'
+      uses: JS-DevTools/npm-publish@v1
+      with:
+          token: ${{ secrets.NPM_TOKEN }}
+
+    - if: steps.publish.type != 'none'
       run: |
-        npm pack
-        npm publish --access public
-      env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-
+        echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+        
     # - name: Publish Library To Github
     #   if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
     #   id: gprpublish
