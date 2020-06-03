@@ -12,6 +12,7 @@ on:
       - 'feature/*'
     paths:
       - 'projects/lazh-validator/**'
+      - '.github/workflows/Lazh-Validator-Lib-CI.yml'
   pull_request:
     branches:
       - 'develop'
@@ -44,19 +45,23 @@ jobs:
       run: npm run test-headless lazh-validator
 
     - name: Build Library
-      if: ${{ github.ref == 'refs/heads/develop' && (github.event_name == 'pull_request' || github.event_name == 'push') }}
-      run: npm run build lazh-validator -- --prod
+      if: ${{ github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master' }}
+      run: npm run build lazh-validator -- --prod 
 
-    - name: Pack & Publish Library To NPM
+    - name: Publish Library To NPM
+      id: publish      
       if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
-      working-directory: './dist/lazh-validator'
+      uses: JS-DevTools/npm-publish@v1
+      with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: './dist/lazh-validator/package.json'
+          check-version	: false
+
+
+    - if: steps.publish.type != 'none'
       run: |
-        npm pack
-        npm publish --access public
-      env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-
+        echo "Version changed: ${{ steps.publish.outputs.old-version }} => ${{ steps.publish.outputs.version }}"
+        
     # - name: Publish Library To Github
     #   if: ${{ github.ref == 'refs/heads/master' && github.event_name == 'push' }}
     #   id: gprpublish
