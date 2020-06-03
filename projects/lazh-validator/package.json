@@ -18,7 +18,10 @@
     "url": "https://github.com/lakshmansha/Lazh-Libs/issues",
     "email": "haranhari_38@outlook.com"
   },
-  "author": "Lakshman.S",
+  "author": {
+    "name": "Lakshman.S",
+    "url": "https://github.com/lakshmansha"
+  },
   "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^9.1.9",
