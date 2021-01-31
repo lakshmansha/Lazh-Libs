@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 
 @Injectable({
@@ -7,7 +7,7 @@ import * as CryptoJS from 'crypto-js';
 export class LazhCryptoService {
   private _Keys;
 
-  constructor(keys: string) {
+  constructor(@Inject('CRYPTO_KEY') private keys: string) {
     this._Keys = keys;
   }
 

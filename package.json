@@ -11,7 +11,10 @@
     "e2e": "ng e2e",
     "val:uninstall": "npm uninstall @lazh/validator",
     "val:build": "ng build lazh-validator",
-    "val:install": "npm i dist/lazh-validator --save-optional"
+    "val:install": "npm i dist/lazh-validator --save-optional",
+    "crypto:uninstall": "npm uninstall @lazh/crypto",
+    "crypto:build": "ng build lazh-crypto",
+    "crypto:install": "npm i dist/lazh-crypto --save-optional"
   },
   "private": true,
   "dependencies": {
