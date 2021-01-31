@@ -20,6 +20,10 @@
       "lazh-validator": [
         "dist/lazh-validator/lazh-validator",
         "dist/lazh-validator"
+      ],
+      "lazh-crypto": [
+        "dist/lazh-crypto/lazh-crypto",
+        "dist/lazh-crypto"
       ]
     }
   },

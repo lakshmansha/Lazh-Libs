@@ -168,7 +168,48 @@
           }
         }
       }
-    }},
+    },
+    "lazh-crypto": {
+      "projectType": "library",
+      "root": "projects/lazh-crypto",
+      "sourceRoot": "projects/lazh-crypto/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/lazh-crypto/tsconfig.lib.json",
+            "project": "projects/lazh-crypto/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/lazh-crypto/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/lazh-crypto/src/test.ts",
+            "tsConfig": "projects/lazh-crypto/tsconfig.spec.json",
+            "karmaConfig": "projects/lazh-crypto/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/lazh-crypto/tsconfig.lib.json",
+              "projects/lazh-crypto/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "analytics": false
   },
