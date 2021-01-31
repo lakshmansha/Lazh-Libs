@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
-import { LazhCryptoComponent } from './lazh-crypto.component';
 
-
+import { LazhCryptoService } from './services/lazh-crypto.service';
 
 @NgModule({
-  declarations: [LazhCryptoComponent],
-  imports: [
-  ],
-  exports: [LazhCryptoComponent]
+  declarations: [],
+  imports: [],
+  exports: [],
+  providers: [LazhCryptoService]
 })
 export class LazhCryptoModule { }
